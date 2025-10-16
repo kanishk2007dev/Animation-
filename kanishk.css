@@ -1,0 +1,47 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: black;
+}
+
+.heart3d {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 200px;
+    height: 325px;
+    /* Enables 3D transformations on the children */
+    transform-style: preserve-3d;
+    /* Animation for the entire heart cage rotation */
+    animation: spin 15s infinite linear;
+}
+
+.heart3d div {
+    position: absolute;
+    opacity: 0;
+    width: 200px;
+    height: 325px;
+    border: solid red;
+    /* This border-radius trick forms the heart shape */
+    border-radius: 50% 50% 0 / 40% 50% 0;
+    border-width: 1px;
+    /* Box shadow for a subtle glow effect */
+    box-shadow: 1px 1px 0 0 rgba(255, 255, 255, 0.25);
+}
+
+/* Keyframes to rotate the entire 3D heart cage */
+@keyframes spin {
+    to {
+        transform: rotateY(360deg) rotateX(360deg);
+    }
+}
+
+/* Keyframes to make each individual rib appear */
+@keyframes appear {
+    to {
+        opacity: 1;
+    }
+}
